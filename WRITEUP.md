@@ -60,16 +60,18 @@ The movies with random normal words were predicted terribly and those with disti
 
 ### What is a sentence embedding, in your own words?
 
-XXXX
+Sentence embedding is when the questions I have whose words in sentence are turned into a list of numbers, then it ranks the movies whos numbers are similar to my questions
+
+The question on blood diamond most likely would've been handlesd much better with words being turned into lists of numbers and compared to the description
 
 ### Where does each method do better, and why?
 
-XXXX
+It looks like embeddings does better on more general and broader questions asked whereas the TF-IDF does better in the pointed super descript and niche topics. Overall however, embeddings scored much better
 
 ### Your Part 0 predictions: which held, and which would you change?
 
-XXXX
+I wouldn't change any, they both hold
 
 ### How might you combine the two methods?
 
-XXXX
+A combination of both might start of with embedding to get the general accuracy to bring it close to what we want and then using TF-IDF weighted slightly less so that within the smaller subset we get even more refined responses
