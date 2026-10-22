@@ -7,7 +7,7 @@ summarized as one-liners.
 <!-- transcript-session: f1082ed4-6c32-486f-980e-fdef381bee06 | 2026-10-20T20:17:18.295Z -->
 ## Session `f1082ed4`, 2026-10-20 20:17:18
 
-*18 user turns. Tool outputs and reasoning omitted.*
+*27 user turns. Tool outputs and reasoning omitted.*
 
 **User:**
 lets start
@@ -456,5 +456,145 @@ The movie that was top was Creed which came up first because I used very specifi
 - 🔧 `Edit`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/WRITEUP.md
 - 🔧 `Bash`: Commit Part 3, push, check template updates
 - 🔧 `Bash`: Run the question bank with TF-IDF
+I wrote your answer in. The slot now reads:
+
+> ### Did the movies you meant come up? What did TF-IDF get right and wrong?
+>
+> The movie that was top was Creed which came up first because I used very specific name terms. For the rest of them it had 9. Blood Diamond and 6. Black Panther. It did not do well with descriptive phrases but without a specific terms
+
+```
+Wrote TRANSCRIPT.md: 1 session(s).
+1 session(s) found; this session in TRANSCRIPT.md: yes.
+[main b68e748] Part 3 done
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+To https://github.com/jlauriice/comp440-retrieval.git
+   156797f..b68e748  main -> main
+```
+
+Part 3 is saved on GitHub, and there are no template updates.
+
+**Part 4: The question bank (about 9 minutes).** I ran all 518 questions through TF-IDF with your settings:
+
+```
+TF-IDF, with your settings: REMOVE_STOP_WORDS = True, MIN_MOVIES = 1, REPEATS_COUNT_LESS = True.
+Ran 518 questions against 4,309 movies in under a second.
+
+TF-IDF put the right movie first for 21 of 100 written questions and in the top 10 for 32.
+  Of the 34 detail questions, it put 21 first and 32 in the top 10.
+  Of the 33 reworded questions, it put 0 first and 0 in the top 10.
+  Of the 33 vague questions, it put 0 first and 0 in the top 10.
+It put the right movie first for 21 of 418 real requests and in the top 10 for 66.
+
+Saved every question's top 10 in results/tfidf.json. To look through them: uv run python site.py
+```
+
+Which kind of question did TF-IDF handle best, and which worst? By how much? A sentence or two is enough.
+
+**User:**
+Overall the performance was appaling. Like I'd expected, it does best in detailed questions and horrenus in the reworded and vague questions
+
+**Claude:**
+- 🔧 `Edit`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/WRITEUP.md
+I wrote your answer in. The slot now reads:
+
+> ### Which kind of question did TF-IDF handle best, and which worst? By how much?
+>
+> Overall the performance was appaling. Like I'd expected, it does best in detailed questions and horrenus in the reworded and vague questions
+
+The slot also asks "by how much?", and your answer doesn't have that part yet. How big was the gap? You can read it from the score lines in the output. A sentence is enough.
+
+**User:**
+by how much?
+
+**Claude:**
+It means: how big is the difference between the best kind and the worst kinds? Put it in numbers from the output.
+
+Each kind has a line in the output that says how many it put first and how many in the top 10. For example, "Of the 34 detail questions, it put 21 first and 32 in the top 10." Compare the detail line with the reworded and vague lines. You could give the counts, or turn them into percentages.
+
+How big was the gap? A sentence is enough.
+
+**User:**
+The gap was by an infinite amount becasue we had 0 for both reworded and vague but 21 for the detailed
+
+**Claude:**
+- 🔧 `Edit`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/WRITEUP.md
+- 🔧 `Bash`: Start the comparison site
+- 🔧 `Bash`: Read README Part 4 site description
+- 🔧 `Bash`: Read rest of README Part 4 and site output
+I added your gap answer. The slot now reads:
+
+> ### Which kind of question did TF-IDF handle best, and which worst? By how much?
+>
+> Overall the performance was appaling. Like I'd expected, it does best in detailed questions and horrenus in the reworded and vague questions
+>
+> The gap was by an infinite amount becasue we had 0 for both reworded and vague but 21 for the detailed
+
+One way this could mislead you: each kind has only 33 or 34 questions, all written for this activity, so the gap could come partly from how those particular questions were worded.
+
+The site is running:
+
+```
+The site is running at http://localhost:8765. Stop it with Ctrl-C.
+```
+
+It shows one question at a time: the right movie, where TF-IDF ranked it, and TF-IDF's top 10, with the words each movie shares with the question. Pick "TF-IDF missed" in the Show menu to see only the misses.
+
+Look through a few misses, and tell me when you're done. You can also give me a question's id, like w026, if you want to talk about it.
+
+**User:**
+I'm starting to think it's a bit too strict
+
+**Claude:**
+Which part do you mean is too strict: TF-IDF's matching, or one of your settings? And which misses were you looking at when you noticed it?
+
+You can give me a question's id, like w026, and I'll pull up what the site shows for it. Then I'll ask the Part 4 question: what do the misses you looked at have in common?
+
+**User:**
+My settings
+
+**Claude:**
+You can change your settings whenever you want. If you do, I'll edit `tfidf_settings.py` and rerun the question bank with the new values. Then I'll tell you which of your answers came from the old settings, so you can keep them or update them.
+
+I won't say which change would help; that's your call. I'm happy to explain any setting again first.
+
+Do you want to change one? If so, which setting, to what value, and why? A sentence is enough.
+
+**User:**
+Nooo
+
+**Claude:**
+OK, your settings stay as they are.
+
+Keep looking through the misses on the site. Pick "TF-IDF missed" in the Show menu, and open whichever ones you like.
+
+Once you've looked at a few: what do the misses you looked at have in common? A sentence or two is enough.
+
+**User:**
+It's fine
+
+**Claude:**
+Got it.
+
+Have you looked at a few misses on the site yet? When you have, tell me what those misses have in common. A sentence or two is enough. If the site isn't working for you, tell me, and I'll show you the misses in the terminal.
+
+**User:**
+what's next
+
+**Claude:**
+The next step is the last slot of Part 4. Then Part 5, embeddings, starts.
+
+For that slot, look at two or three questions on the site that TF-IDF missed: pick "TF-IDF missed" in the Show menu. For each one, compare the question's words with the right movie's plot summary. Then tell me what those misses have in common.
+
+If you'd rather use the terminal, say so, and I'll list some missed questions there.
+
+What do the misses you looked at have in common? A sentence or two is enough.
+
+**User:**
+The movies with random normal words were predicted terribly and those with distinct words worked best
+
+**Claude:**
+- 🔧 `Edit`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/WRITEUP.md
+- 🔧 `Bash`: Commit Part 4, push, check template updates
+- 🔧 `Bash`: Run the question bank with embeddings
 
 <!-- end-session: f1082ed4-6c32-486f-980e-fdef381bee06 -->
