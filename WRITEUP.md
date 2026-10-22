@@ -20,7 +20,9 @@ For vague descriptions, Embedding will probably do better because there won't be
 
 ### The settings you chose, and why
 
-XXXX
+- `REMOVE_STOP_WORDS = True`: it removes all the noise and allows us to focus on the details that differentiate the movies.
+- `MIN_MOVIES = 1`: I'll keep it at one to allow for really rare movies that have bizzare words that only come into play once
+- `REPEATS_COUNT_LESS = True`: I like it because it sounds mathimatically sound
 
 ## Part 2: Top terms
 
