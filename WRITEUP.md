@@ -48,11 +48,13 @@ The movie that was top was Creed which came up first because I used very specifi
 
 ### Which kind of question did TF-IDF handle best, and which worst? By how much?
 
-XXXX
+Overall the performance was appaling. Like I'd expected, it does best in detailed questions and horrenus in the reworded and vague questions
+
+The gap was by an infinite amount becasue we had 0 for both reworded and vague but 21 for the detailed
 
 ### The misses you looked at: what do they have in common?
 
-XXXX
+The movies with random normal words were predicted terribly and those with distinct words worked best
 
 ## Part 5: Embeddings
 
