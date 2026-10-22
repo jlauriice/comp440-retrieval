@@ -28,7 +28,9 @@ For vague descriptions, Embedding will probably do better because there won't be
 
 ### Your movies: what do the top terms get right and wrong about what makes each one distinctive?
 
-XXXX
+Passion of Christ, I think Nazareth, Jesus should be the top ones, portrayal I get it but that can be applied to any movie. It did a pretty okay job I assume. I'm surprised portrayal was above Jesus
+
+For Titanic, They Get, titanic, boards, ship , aboard well. Rose is close but not quite cause it's a fairly common name, as seen in 13 movies. Most of the numbers and the rest of the names and years are pretty useless on their own.
 
 ## Part 3: Your own searches
 
