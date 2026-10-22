@@ -36,11 +36,13 @@ For Titanic, They Get, titanic, boards, ship , aboard well. Rose is close but no
 
 ### Your questions, as you typed them
 
-XXXX
+1. Obscure African Country is Rich in the world's most precious metal unbenkowst to the rest of the world
+2. White south african guy goes to Congo to find diamonds. He meets Solomon Vandy, who has found the biggest diamond and hidden it. They go through threats from rebel soldiers and government forces to try and get the diamond, sell it and bring solomons family back
+3. A boxer, Adonis Creed who rises up the ranks and becomes the best in the world. He is trained by Rocky a once world class boxer and must face adversity as his girlfriend is losing her sense of sound.
 
 ### Did the movies you meant come up? What did TF-IDF get right and wrong?
 
-XXXX
+The movie that was top was Creed which came up first because I used very specific name terms. For the rest of them it had 9. Blood Diamond and 6. Black Panther. It did not do well with descriptive phrases but without a specific terms
 
 ## Part 4: The question bank
 
