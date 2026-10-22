@@ -7,7 +7,7 @@ summarized as one-liners.
 <!-- transcript-session: f1082ed4-6c32-486f-980e-fdef381bee06 | 2026-10-20T20:17:18.295Z -->
 ## Session `f1082ed4`, 2026-10-20 20:17:18
 
-*3 user turns. Tool outputs and reasoning omitted.*
+*5 user turns. Tool outputs and reasoning omitted.*
 
 **User:**
 lets start
@@ -70,5 +70,54 @@ Laurice Jimu
 **Claude:**
 - 🔧 `Edit`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/WRITEUP.md
 - 🔧 `Bash`: Refresh transcript and commit name and date
+I filled in your name and the date and committed them:
+
+```
+Wrote TRANSCRIPT.md: 1 session(s).
+1 session(s) found; this session in TRANSCRIPT.md: yes.
+[main dc4bef0] Name and date
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+```
+
+Now for your two predictions. First, the two methods you'll compare:
+
+Keyword search (TF-IDF) scores a movie by the words its plot summary shares with your question. Embedding search turns your question and each plot summary into a list of numbers. It then ranks the movies whose numbers are closest to your question's.
+
+A guess is fine. A sentence or two is enough.
+
+**Questions that name a character, place or thing: which method will do better, and why?**
+No response requested.
+
+**User:**
+Keyword Search, since in the plot description we probably have these details written in there and a match is likely.
+
+**Claude:**
+- 🔧 `Edit`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/WRITEUP.md
+Your name and the date are committed:
+
+```
+Wrote TRANSCRIPT.md: 1 session(s).
+1 session(s) found; this session in TRANSCRIPT.md: yes.
+[main dc4bef0] Name and date
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+```
+
+I wrote your first prediction in. The slot now reads:
+
+> ### Questions that name a character, place or thing: which method will do better, and why?
+>
+> Keyword Search, since in the plot description we probably have these details written in there and a match is likely.
+
+I should have described the two methods before the first question, so here they are. Keyword search (TF-IDF) scores a movie by the words its plot summary shares with your question. Embedding search turns your question and each plot summary into a list of numbers. Then it ranks the movies whose numbers are closest to your question's.
+
+Second prediction: **Vague descriptions: which method will do better, and why?** A sentence or two is enough.
+
+**User:**
+For vague descriptions, Embedding will probably do better because there won't be that many words that the plot shares with the question if the question is a pointed question
+
+**Claude:**
+- 🔧 `Edit`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/WRITEUP.md
+- 🔧 `Bash`: Refresh transcript, commit Part 0, and push
+- 🔧 `Read`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/tfidf_settings.py
 
 <!-- end-session: f1082ed4-6c32-486f-980e-fdef381bee06 -->
