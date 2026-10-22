@@ -7,7 +7,7 @@ summarized as one-liners.
 <!-- transcript-session: f1082ed4-6c32-486f-980e-fdef381bee06 | 2026-10-20T20:17:18.295Z -->
 ## Session `f1082ed4`, 2026-10-20 20:17:18
 
-*27 user turns. Tool outputs and reasoning omitted.*
+*36 user turns. Tool outputs and reasoning omitted.*
 
 **User:**
 lets start
@@ -596,5 +596,207 @@ The movies with random normal words were predicted terribly and those with disti
 - 🔧 `Edit`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/WRITEUP.md
 - 🔧 `Bash`: Commit Part 4, push, check template updates
 - 🔧 `Bash`: Run the question bank with embeddings
+I wrote your answer in. The slot now reads:
+
+> ### The misses you looked at: what do they have in common?
+>
+> The movies with random normal words were predicted terribly and those with distinct words worked best
+
+One way this could mislead you: a question can share rare words with a movie's summary and still miss, if a wrong movie shares even rarer ones.
+
+```
+Wrote TRANSCRIPT.md: 1 session(s).
+1 session(s) found; this session in TRANSCRIPT.md: yes.
+[main 68505ef] Part 4 done
+ 2 files changed, 56676 insertions(+), 2 deletions(-)
+ create mode 100644 results/tfidf.json
+To https://github.com/jlauriice/comp440-retrieval.git
+   b68e748..68505ef  main -> main
+```
+
+Part 4 is saved on GitHub, and there are no template updates.
+
+**Part 5: Embeddings (about 12 minutes).** The model finished downloading during setup. I've started `evaluate.py --method embed`, which runs the question bank with embeddings and takes a minute or so.
+
+On October 1 you saw GloVe, which gave each word a list of numbers. Words used in similar contexts got similar lists. A sentence model does the same thing for a whole sentence or plot summary, so two texts that mean similar things get similar lists, even when they share no words. Search then ranks the movies whose list is closest to your question's list.
+
+What is a sentence embedding, in your own words? Use one of your own Part 3 questions or movies as the example. A sentence or two is enough.
+
+**User:**
+<task-notification>
+<task-id>b1p1yf6nf</task-id>
+<tool-use-id>toolu_01T4D5ZjWSo1yu9BrX53juSV</tool-use-id>
+<output-file>/private/tmp/claude-501/-Users-laurice-Documents-Collective-Intelligence-comp440-retrieval/f1082ed4-6c32-486f-980e-fdef381bee06/tasks/b1p1yf6nf.output</output-file>
+<status>completed</status>
+<summary>Background command "Run the question bank with embeddings" completed (exit code 0)</summary>
+</task-notification>
+
+**Claude:**
+- 🔧 `Bash`: Read the end of the embedding run output
+The embedding run has finished:
+
+```
+Saved every question's top 10 in results/embed.json. To look through them: uv run python site.py
+```
+
+I'll show you its scores after your sentence-embedding answer is written in.
+
+**User:**
+how many parts do we have in this homework bro?
+
+**Claude:**
+There are six parts, Part 0 to Part 5, and you're on Part 5, the last one.
+
+Part 5 has four short slots:
+
+1. What a sentence embedding is, in your own words (the one you're on now).
+2. Where each method does better, and why.
+3. Which of your Part 0 predictions held.
+4. How you might combine the two methods.
+
+After that, I'll check that nothing is missing, save everything to GitHub, and give you the submission form.
+
+What is a sentence embedding, in your own words? Use one of your own Part 3 questions or movies as the example. A sentence or two is enough.
+
+**User:**
+Sentence embedding is when the questions I have whose words in sentence are turned into a list of numbers, then it ranks the movies whos numbers are similar to my questions
+
+**Claude:**
+- 🔧 `Edit`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/WRITEUP.md
+I wrote your answer in. The slot now reads:
+
+> ### What is a sentence embedding, in your own words?
+>
+> Sentence embedding is when the questions I have whose words in sentence are turned into a list of numbers, then it ranks the movies whos numbers are similar to my questions
+
+The question also asks for an example from one of your own Part 3 questions or movies, like your Blood Diamond question or Creed. How would embeddings treat that question? A sentence is enough.
+
+**User:**
+The question on blood diamond most likely would've been handlesd much better with words being turned into lists of numbers and compared to the description
+
+**Claude:**
+- 🔧 `Edit`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/WRITEUP.md
+- 🔧 `Read`: /private/tmp/claude-501/-Users-laurice-Documents-Collective-Intelligence-comp440-retrieval/f1082e...
+I added your example. The slot now reads:
+
+> ### What is a sentence embedding, in your own words?
+>
+> Sentence embedding is when the questions I have whose words in sentence are turned into a list of numbers, then it ranks the movies whos numbers are similar to my questions
+>
+> The question on blood diamond most likely would've been handlesd much better with words being turned into lists of numbers and compared to the description
+
+Here's the embedding run's output:
+
+```
+Embedding 518 questions. This can take a minute.
+Ran 518 questions against 4,309 movies in 11 seconds.
+
+Embeddings put the right movie first for 31 of 100 written questions and in the top 10 for 59.
+  Of the 34 detail questions, they put 24 first and 31 in the top 10.
+  Of the 33 reworded questions, they put 4 first and 18 in the top 10.
+  Of the 33 vague questions, they put 3 first and 10 in the top 10.
+They put the right movie first for 32 of 418 real requests and in the top 10 for 81.
+
+The embedding model reads only about the first 200 words of a question, so it ignored the end of 62 of the 418 real requests.
+
+Saved every question's top 10 in results/embed.json. To look through them: uv run python site.py
+```
+
+Reload http://localhost:8765. It now shows both methods, and its Show menu has three new choices: "TF-IDF did better", "Embeddings did better" and "Both missed", each with its count.
+
+If you want, I can also rerun your three Part 3 questions with both methods.
+
+Look at one question from "TF-IDF did better" and one from "Embeddings did better", whichever you like. Tell me when you have.
+
+**User:**
+let's do the black panther question
+
+**Claude:**
+- 🔧 `Bash`: Rerun the first Part 3 question with both methods
+Here's your first Part 3 question, run with both methods:
+
+```
+Question: Obscure African Country is Rich in the world's most precious metal unbenkowst to the rest of the world
+
+TF-IDF, top 10:
+   1. 0.173  Precious (2009)   matched: precious, african
+   2. 0.137  Phantom of the Opera, The (2004)   matched: obscure, rest
+   3. 0.115  Citizen Kane (1941)   matched: rest, rich
+   4. 0.110  Jupiter Ascending (2015)   matched: precious
+   5. 0.107  The Changeling (1980)   matched: obscure
+   6. 0.105  Black Panther (2017)   matched: country, african, world
+   7. 0.102  Girl, Interrupted (1999)   matched: world, rest
+   8. 0.102  Iron Giant, The (1999)   matched: metal
+   9. 0.102  Red Dawn (1984)   matched: country, world
+  10. 0.099  Wayne's World (1992)   matched: metal, world
+      Ignored as stop words: is, in, the, most, to, of.
+      Not in the vocabulary (in no summary): unbenkowst.
+
+Embeddings, top 10:
+   1. 0.429  The Ice Pirates (1984)
+   2. 0.331  Jupiter Ascending (2015)
+   3. 0.328  Road to El Dorado, The (2000)
+   4. 0.323  Precious (2009)
+   5. 0.320  Searching for Sugar Man (2012)
+   6. 0.317  Eureka (1983)
+   7. 0.299  Out of Africa (1985)
+   8. 0.295  Charlie and the Chocolate Factory (2005)
+   9. 0.291  Treasure of the Sierra Madre, The (1948)
+  10. 0.291  Good, the Bad and the Ugly, The (Buono, il brutto, il cattivo, Il) (1966)
+      Embeddings compare whole sentences, so there are no matched words to list.
+```
+
+For embeddings, the score is cosine similarity between the two lists of numbers. 1 means most alike, and 0 means unrelated.
+
+Next, look at one question from "TF-IDF did better" and one from "Embeddings did better" on the site. Tell me when you have.
+
+**User:**
+i checked
+
+**Claude:**
+Now the slot question: **Where does each method do better, and why?** You can draw on the two questions you looked at, your Black Panther rerun, and the scores. A sentence or two is enough.
+
+**User:**
+It looks like embeddings does better on more general and broader questions asked whereas the TF-IDF does better in the pointed super descript and niche topics. Overall however, embeddings scored much better
+
+**Claude:**
+- 🔧 `Edit`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/WRITEUP.md
+I wrote your answer in. The slot now reads:
+
+> ### Where does each method do better, and why?
+>
+> It looks like embeddings does better on more general and broader questions asked whereas the TF-IDF does better in the pointed super descript and niche topics. Overall however, embeddings scored much better
+
+One way "much better" could mislead you: the gap depends on which line you read. In the top 10, it's 59 to 32 on the written questions but 81 to 66 on the 418 real requests.
+
+Here are your two Part 0 predictions, as you wrote them:
+
+> **Questions that name a character, place or thing:** Keyword Search, since in the plot description we probably have these details written in there and a match is likely.
+>
+> **Vague descriptions:** For vague descriptions, Embedding will probably do better because there won't be that many words that the plot shares with the question if the question is a pointed question
+
+Which held, and which would you change now? Why? A sentence or two is enough.
+
+**User:**
+I wouldn't change any, they both hold
+
+**Claude:**
+- 🔧 `Edit`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/WRITEUP.md
+I wrote your answer in. The slot now reads:
+
+> ### Your Part 0 predictions: which held, and which would you change?
+>
+> I wouldn't change any, they both hold
+
+One score goes the other way from your first prediction: on detail questions, embeddings put the right movie first 24 times, and TF-IDF did it 21 times.
+
+Last slot: **How might you combine the two methods?** A sentence or two is enough.
+
+**User:**
+A combination of both might start of with embedding to get the general accuracy to bring it close to what we want and then using TF-IDF weighted slightly less so that within the smaller subset we get even more refined responses
+
+**Claude:**
+- 🔧 `Edit`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/WRITEUP.md
+- 🔧 `Bash`: Commit Part 5, push, check template updates
 
 <!-- end-session: f1082ed4-6c32-486f-980e-fdef381bee06 -->
