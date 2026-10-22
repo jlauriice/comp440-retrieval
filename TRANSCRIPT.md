@@ -7,7 +7,7 @@ summarized as one-liners.
 <!-- transcript-session: f1082ed4-6c32-486f-980e-fdef381bee06 | 2026-10-20T20:17:18.295Z -->
 ## Session `f1082ed4`, 2026-10-20 20:17:18
 
-*5 user turns. Tool outputs and reasoning omitted.*
+*9 user turns. Tool outputs and reasoning omitted.*
 
 **User:**
 lets start
@@ -119,5 +119,88 @@ For vague descriptions, Embedding will probably do better because there won't be
 - 🔧 `Edit`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/WRITEUP.md
 - 🔧 `Bash`: Refresh transcript, commit Part 0, and push
 - 🔧 `Read`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/tfidf_settings.py
+- 🔧 `Bash`: Check for template updates
+I wrote your second prediction in. The slot now reads:
+
+> ### Vague descriptions: which method will do better, and why?
+>
+> For vague descriptions, Embedding will probably do better because there won't be that many words that the plot shares with the question if the question is a pointed question
+
+```
+Wrote TRANSCRIPT.md: 1 session(s).
+1 session(s) found; this session in TRANSCRIPT.md: yes.
+[main faa5314] Part 0 done
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+To https://github.com/jlauriice/comp440-retrieval.git
+   dc4bef0..faa5314  main -> main
+```
+
+Setup is done, and your work is saved on GitHub. There are no template updates to merge.
+
+**Part 1: Build the TF-IDF model (about 6 minutes).** Most students get through Part 3 or 4 in class. Part 5 is fine to finish at home, and anything unfinished is due 8:00am Thursday, October 22.
+
+`tfidf_settings.py` has three settings. Words are always lowercased, so "Dog" and "dog" count as one word.
+
+1. **`REMOVE_STOP_WORDS`** (True or False; now **False**). When it's True, common words are dropped before scoring. "The dog ate the bill" would become "dog ate". The list is scikit-learn's, and it covers more than "the" and "of". It also drops words like "bill", "fire", "name" and "system", and the number words "one" to "twelve", except "seven".
+
+2. **`MIN_MOVIES`** (a whole number, 1 or more; now **1**). A word is kept only if it appears in at least this many plot summaries. With 3, a made-up name that shows up in one summary is dropped. 1 is the only value that keeps a word found in a single summary.
+
+3. **`REPEATS_COUNT_LESS`** (True or False; now **False**). When it's True, a word that repeats in one summary counts as 1 + log(count) instead of its full count. A word used 4 times then counts about 2.4, not 4.
+
+Keeping the current value is a choice too. What are your three choices, each with a reason? One reply is fine.
+
+**User:**
+so what do you mean what are my t3 choices
+
+**Claude:**
+You choose a value for each of the three settings in `tfidf_settings.py`. Then you give one short reason for each.
+
+- `REMOVE_STOP_WORDS`: True or False.
+- `MIN_MOVIES`: a whole number, like 1, 2 or 5.
+- `REPEATS_COUNT_LESS`: True or False.
+
+You can keep a setting's current value, but that needs a reason too. I'll put your values into the file and write your reasons into `WRITEUP.md`. I'm happy to explain any setting again first.
+
+What are your three values, each with a reason? A sentence for each is enough.
+
+**User:**
+what are the current values and what are they out of
+
+**Claude:**
+Here are the current values and the values each setting can take:
+
+| Setting | Now | Can be |
+|---|---|---|
+| `REMOVE_STOP_WORDS` | False | True or False |
+| `MIN_MOVIES` | 1 | any whole number, 1 or more (no fixed top; the collection has 4,309 movies) |
+| `REPEATS_COUNT_LESS` | False | True or False |
+
+The current values are scikit-learn's defaults, which is the plainest version of TF-IDF.
+
+What do you choose for each, and why? A sentence for each is enough.
+
+**User:**
+True, 1, True
+
+**Claude:**
+Got it: `REMOVE_STOP_WORDS` True, `MIN_MOVIES` 1, `REPEATS_COUNT_LESS` True.
+
+Each one still needs a reason, in your own words. That includes `MIN_MOVIES`, even though 1 keeps the current value.
+
+Why did you pick each one? A sentence for each is enough.
+
+**User:**
+remove stop words - it removes all the noise and allows us to focus on the details that differentiate the movies. 
+
+min movies - I'll keep it at one to allow for really rare movies that have bizzare words that only come into play once 
+
+repeat count less - I like it because it sounds mathimatically sound
+
+**Claude:**
+- 🔧 `Edit`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/tfidf_settings.py
+- 🔧 `Edit`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/tfidf_settings.py
+- 🔧 `Edit`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/WRITEUP.md
+- 🔧 `Bash`: Show the settings as the file now has them
+- 🔧 `Bash`: Commit Part 1, push, check template updates
 
 <!-- end-session: f1082ed4-6c32-486f-980e-fdef381bee06 -->
