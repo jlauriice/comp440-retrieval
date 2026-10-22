@@ -7,7 +7,7 @@ summarized as one-liners.
 <!-- transcript-session: f1082ed4-6c32-486f-980e-fdef381bee06 | 2026-10-20T20:17:18.295Z -->
 ## Session `f1082ed4`, 2026-10-20 20:17:18
 
-*9 user turns. Tool outputs and reasoning omitted.*
+*14 user turns. Tool outputs and reasoning omitted.*
 
 **User:**
 lets start
@@ -202,5 +202,135 @@ repeat count less - I like it because it sounds mathimatically sound
 - 🔧 `Edit`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/WRITEUP.md
 - 🔧 `Bash`: Show the settings as the file now has them
 - 🔧 `Bash`: Commit Part 1, push, check template updates
+I set the file to your values:
+
+```
+REMOVE_STOP_WORDS = True
+MIN_MOVIES = 1
+REPEATS_COUNT_LESS = True
+```
+
+The slot now reads:
+
+> ### The settings you chose, and why
+>
+> - `REMOVE_STOP_WORDS = True`: it removes all the noise and allows us to focus on the details that differentiate the movies.
+> - `MIN_MOVIES = 1`: I'll keep it at one to allow for really rare movies that have bizzare words that only come into play once
+> - `REPEATS_COUNT_LESS = True`: I like it because it sounds mathimatically sound
+
+```
+Wrote TRANSCRIPT.md: 1 session(s).
+1 session(s) found; this session in TRANSCRIPT.md: yes.
+[main c2addd8] Part 1 done
+ 2 files changed, 5 insertions(+), 3 deletions(-)
+To https://github.com/jlauriice/comp440-retrieval.git
+   faa5314..c2addd8  main -> main
+```
+
+Part 1 is saved on GitHub, and there are no template updates.
+
+**Part 2: Top terms (about 6 minutes).** The packages are installed (`Installed 38 packages in 176ms`), so the script is ready to run. It lists the words with the highest TF-IDF weight in one movie's plot summary.
+
+Which two movies do you know well? The ones you rated in HW1 are in the collection. All or part of a title works.
+
+**User:**
+what are the options
+
+**Claude:**
+There are 4,309 movies in the collection, too many to list. It includes every movie from HW1, plus a lot of well-known films.
+
+Just name any movie you know well. If a title isn't in the collection, the script will say so, and you can pick another. If a title matches several movies, it lists them, and you pick one.
+
+Which two movies would you like to try?
+
+**User:**
+Titanic and Passion of the Christ
+
+**Claude:**
+- 🔧 `Bash`: Show top TF-IDF terms for both movies
+Here's the output for both titles:
+
+```
+2 movies match "Titanic". Run it again with the whole title of one:
+  Titanic (1997)
+  Titanic (1953)
+-----
+Passion of the Christ, The (2004): the 6 words with the highest TF-IDF weight in its plot summary.
+Only 6 of this summary's words are in the vocabulary with your settings.
+
+     word               weight  count here  movies
+  1. nazareth            0.503           1       1
+  2. portrayal           0.449           1       4
+  3. jesus               0.439           1       5
+  4. graphic             0.430           1       6
+  5. hours               0.372           1      18
+  6. life                0.172           1     600
+
+count here: how many times the word is in this plot summary. movies: how many of the 4,309 plot summaries have it.
+
+The plot summary: A graphic portrayal of the last twelve hours of Jesus of Nazareth's life.
+
+Your settings: REMOVE_STOP_WORDS = True, MIN_MOVIES = 1, REPEATS_COUNT_LESS = True.
+```
+
+The Passion of the Christ worked. "Titanic" matches two movies. Which one did you mean, the 1997 one or the 1953 one?
+
+**User:**
+the 1997 one
+
+**Claude:**
+- 🔧 `Bash`: Show top TF-IDF terms for Titanic 1997
+Here's Titanic (1997):
+
+```
+Titanic (1997): the 15 words with the highest TF-IDF weight in its plot summary.
+
+     word               weight  count here  movies
+  1. rose                0.324           3      13
+  2. titanic             0.321           2       2
+  3. aboard              0.256           2      15
+  4. ship                0.216           2      44
+  5. tells               0.209           2      53
+  6. 101                 0.199           1       1
+  7. bukater             0.199           1       1
+  8. 84                  0.199           1       1
+  9. fabrizio            0.199           1       1
+ 10. rossi               0.199           1       1
+ 11. 1912                0.199           1       1
+ 12. dewitt              0.190           1       2
+ 13. dawson              0.190           1       2
+ 14. boards              0.178           1       4
+ 15. tickets             0.178           1       4
+
+count here: how many times the word is in this plot summary. movies: how many of the 4,309 plot summaries have it.
+
+The plot summary: 101-year-old Rose DeWitt Bukater tells the story of her life aboard the Titanic, 84 years later. A young Rose boards the ship with her mother and fiancé. Meanwhile, Jack Dawson and Fabrizio De Rossi win third-class tickets aboard the ship. Rose tells the whole story from Titanic's departure through to its death—on its first and last voyage—on April 15, 1912.
+
+Your settings: REMOVE_STOP_WORDS = True, MIN_MOVIES = 1, REPEATS_COUNT_LESS = True.
+```
+
+Now both movies have their top terms. For each one, what do the top terms get right, and what do they get wrong, about what makes the movie distinctive? A sentence or two per movie is enough.
+
+**User:**
+Passion of Christ, I think Nazareth, Jesus should be the top ones, portrayal I get it but that can be applied to any movie. It did a pretty okay job I assume. I'm surprised portrayal was above Jesus
+
+**Claude:**
+- 🔧 `Edit`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/WRITEUP.md
+I wrote your answer in. The slot now reads:
+
+> ### Your movies: what do the top terms get right and wrong about what makes each one distinctive?
+>
+> Passion of Christ, I think Nazareth, Jesus should be the top ones, portrayal I get it but that can be applied to any movie. It did a pretty okay job I assume. I'm surprised portrayal was above Jesus
+
+If you want, I can explain later why "portrayal" scored above "jesus". The `movies` column has the answer.
+
+Now Titanic (1997): what do its top terms get right, and what do they get wrong, about what makes it distinctive? A sentence or two is enough.
+
+**User:**
+For Titanic, They Get, titanic, boards, ship , aboard well. Rose is close but not quite cause it's a fairly common name, as seen in 13 movies. Most of the numbers and the rest of the names and years are pretty useless on their own.
+
+**Claude:**
+- 🔧 `Edit`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/WRITEUP.md
+- 🔧 `Bash`: Commit Part 2, push, check template updates
 
 <!-- end-session: f1082ed4-6c32-486f-980e-fdef381bee06 -->
