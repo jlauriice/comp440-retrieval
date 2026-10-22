@@ -798,5 +798,7 @@ A combination of both might start of with embedding to get the general accuracy 
 **Claude:**
 - 🔧 `Edit`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/WRITEUP.md
 - 🔧 `Bash`: Commit Part 5, push, check template updates
+- 🔧 `Skill`: checkpoint
+- 🔧 `Bash`: Check completeness, refresh transcript, check status
 
 <!-- end-session: f1082ed4-6c32-486f-980e-fdef381bee06 -->
