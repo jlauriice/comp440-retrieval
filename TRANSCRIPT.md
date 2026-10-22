@@ -7,7 +7,7 @@ summarized as one-liners.
 <!-- transcript-session: f1082ed4-6c32-486f-980e-fdef381bee06 | 2026-10-20T20:17:18.295Z -->
 ## Session `f1082ed4`, 2026-10-20 20:17:18
 
-*14 user turns. Tool outputs and reasoning omitted.*
+*18 user turns. Tool outputs and reasoning omitted.*
 
 **User:**
 lets start
@@ -332,5 +332,129 @@ For Titanic, They Get, titanic, boards, ship , aboard well. Rose is close but no
 **Claude:**
 - 🔧 `Edit`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/WRITEUP.md
 - 🔧 `Bash`: Commit Part 2, push, check template updates
+I added your Titanic answer. The slot now reads:
+
+> ### Your movies: what do the top terms get right and wrong about what makes each one distinctive?
+>
+> Passion of Christ, I think Nazareth, Jesus should be the top ones, portrayal I get it but that can be applied to any movie. It did a pretty okay job I assume. I'm surprised portrayal was above Jesus
+>
+> For Titanic, They Get, titanic, boards, ship , aboard well. Rose is close but not quite cause it's a fairly common name, as seen in 13 movies. Most of the numbers and the rest of the names and years are pretty useless on their own.
+
+```
+Wrote TRANSCRIPT.md: 1 session(s).
+1 session(s) found; this session in TRANSCRIPT.md: yes.
+[main 156797f] Part 2 done
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+To https://github.com/jlauriice/comp440-retrieval.git
+   c2addd8..156797f  main -> main
+```
+
+Part 2 is saved on GitHub, and there are no template updates.
+
+**Part 3: Your own searches (about 7 minutes).** You'll type three questions, and I'll run each one with TF-IDF and show you its top 10 movies.
+
+What's your first question? For example, describe a movie you know in your own words, without its title.
+
+**User:**
+Obscure African Country is Rich in the world's most precious metal unbenkowst to the rest of the world
+
+**Claude:**
+- 🔧 `Bash`: Run the first search with TF-IDF
+Here's what TF-IDF returned:
+
+```
+Question: Obscure African Country is Rich in the world's most precious metal unbenkowst to the rest of the world
+
+TF-IDF, top 10:
+   1. 0.173  Precious (2009)   matched: precious, african
+   2. 0.137  Phantom of the Opera, The (2004)   matched: obscure, rest
+   3. 0.115  Citizen Kane (1941)   matched: rest, rich
+   4. 0.110  Jupiter Ascending (2015)   matched: precious
+   5. 0.107  The Changeling (1980)   matched: obscure
+   6. 0.105  Black Panther (2017)   matched: country, african, world
+   7. 0.102  Girl, Interrupted (1999)   matched: world, rest
+   8. 0.102  Iron Giant, The (1999)   matched: metal
+   9. 0.102  Red Dawn (1984)   matched: country, world
+  10. 0.099  Wayne's World (1992)   matched: metal, world
+      Ignored as stop words: is, in, the, most, to, of.
+      Not in the vocabulary (in no summary): unbenkowst.
+```
+
+The `matched` words are the question words that also appear in that movie's plot summary.
+
+What's your second question?
+
+**User:**
+White south african guy goes to Congo to find diamonds. He meets Solomon Vandy, who has found the biggest diamond and hidden it. They go through threats from rebel soldiers and government forces to try and get the diamond, sell it and bring solomons family back
+
+**Claude:**
+- 🔧 `Bash`: Run the second search with TF-IDF
+Here's what TF-IDF returned:
+
+```
+Question: White south african guy goes to Congo to find diamonds. He meets Solomon Vandy, who has found the biggest diamond and hidden it. They go ...
+
+TF-IDF, top 10:
+   1. 0.195  Fish Called Wanda, A (1988)   matched: diamond, diamonds
+   2. 0.159  Blue Streak (1999)   matched: diamond
+   3. 0.142  The Shadow of Chikara (1977)   matched: diamonds, hidden, try
+   4. 0.132  Birds of Prey (And the Fantabulous Emancipation of One Harley Quinn) (2020)   matched: diamond, forces
+   5. 0.128  12 Years a Slave (2013)   matched: solomon
+   6. 0.117  G.I. Joe: Retaliation (2013)   matched: threats, forces, government
+   7. 0.111  Dead End (2003)   matched: biggest, try, family
+   8. 0.108  Modesty Blaise (1966)   matched: diamond, government
+   9. 0.107  Blood Diamond (2006)   matched: diamond, rebel, forces
+  10. 0.107  House of Flying Daggers (Shi mian mai fu) (2004)   matched: rebel, government
+      Ignored as stop words: to, find, he, who, has, found, the, and, it, they, go, through, from, get, back.
+      Not in the vocabulary (in no summary): vandy, solomons.
+```
+
+The script shortens a long question on its first line, but it searched the whole question.
+
+What's your third question?
+
+**User:**
+A boxer, Adonis Creed who rises up the ranks and becomes the best in the world. He is trained by Rocky a once world class boxer and must face adversity as his girlfriend is losing her sense of sound.
+
+**Claude:**
+- 🔧 `Bash`: Run the third search with TF-IDF
+- 🔧 `Edit`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/WRITEUP.md
+Here's what TF-IDF returned:
+
+```
+Question: A boxer, Adonis Creed who rises up the ranks and becomes the best in the world. He is trained by Rocky a once world class ...
+
+TF-IDF, top 10:
+   1. 0.281  Creed (2015)   matched: adonis, creed, rocky, world
+   2. 0.215  Fighter, The (2010)   matched: boxer, rocky, world
+   3. 0.204  Rocky V (1990)   matched: boxer, rocky
+   4. 0.179  Rocky II (1979)   matched: creed, rocky
+   5. 0.165  Warrior (2011)   matched: boxer, trained
+   6. 0.145  Raging Bull (1980)   matched: boxer
+   7. 0.138  Ali (2001)   matched: boxer, face
+   8. 0.132  I, Tonya (2017)   matched: ranks, rises
+   9. 0.131  Hurricane, The (1999)   matched: boxer
+  10. 0.125  Cinderella Man (2005)   matched: boxer
+      Ignored as stop words: who, up, the, and, becomes, in, he, is, by, once, must, as, his, her, of.
+      Not in the vocabulary (in no summary): adversity.
+```
+
+I wrote your three questions in, word for word:
+
+> ### Your questions, as you typed them
+>
+> 1. Obscure African Country is Rich in the world's most precious metal unbenkowst to the rest of the world
+> 2. White south african guy goes to Congo to find diamonds. He meets Solomon Vandy, who has found the biggest diamond and hidden it. They go through threats from rebel soldiers and government forces to try and get the diamond, sell it and bring solomons family back
+> 3. A boxer, Adonis Creed who rises up the ranks and becomes the best in the world. He is trained by Rocky a once world class boxer and must face adversity as his girlfriend is losing her sense of sound.
+
+Did the movies you meant come up? What did TF-IDF get right, and what did it get wrong? A sentence or two is enough.
+
+**User:**
+The movie that was top was Creed which came up first because I used very specific name terms. For the rest of them it had 9. Blood Diamond and 6. Black Panther. It did not do well with descriptive phrases but without a specific terms
+
+**Claude:**
+- 🔧 `Edit`: /Users/laurice/Documents/Collective Intelligence/comp440-retrieval/WRITEUP.md
+- 🔧 `Bash`: Commit Part 3, push, check template updates
+- 🔧 `Bash`: Run the question bank with TF-IDF
 
 <!-- end-session: f1082ed4-6c32-486f-980e-fdef381bee06 -->
