@@ -10,11 +10,11 @@ Part 0 predictions stay as you first wrote them; Part 5 asks what you would chan
 
 ### Questions that name a character, place or thing: which method will do better, and why?
 
-XXXX
+Keyword Search, since in the plot description we probably have these details written in there and a match is likely.
 
 ### Vague descriptions: which method will do better, and why?
 
-XXXX
+For vague descriptions, Embedding will probably do better because there won't be that many words that the plot shares with the question if the question is a pointed question
 
 ## Part 1: Build the TF-IDF model
 
